@@ -12,11 +12,14 @@ import matplotlib.pyplot as plt
 
 CSS = """
 h2 {
-    color: #34ebc6;
+    color: #14c0b6;
     font-size: 20;
     text-shadow: 2px 2px 4px #000000;
     text-align: center;
+}
 
+.block-container css-1gx893w egzxvld2 {
+    background-color: #14c0b6;
 }
 
 h3 {
