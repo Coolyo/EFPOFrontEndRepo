@@ -130,35 +130,33 @@ else:
                         color='Topic',template='plotly_dark',hover_data=['Tweet'],width=1000,height=800,title='Visualization of tweets in 3D Space')
                     st.plotly_chart(fig)
                     result.empty()
-    df = ''
-    dictax = {}
-    for item in df['Topic'].unique():
-        dictax[str(item)] = st.container()
-        with dictax[str(item)]:
-            col1, col2 = st.columns([3,2])
-            with col1:
-                AF1 = pd.DataFrame(response.json()[6][int(item)])
-                AF1['Sentiment'] = response.json()[7][int(item)]
-                AF1.columns = ['Tweets','Sentiment']
-                st.table(AF1)
-            with col2:
-                #fig2 = px.bar(x=df['Topic'],y=df.groupby('Topic').count()['Topic'])
-                #fig2.show()
-                plt.style.use("dark_background")
-                dictax = {}
-                for symbol in df['Topic'].unique():
-                    dictax[f'{symbol}'] = 'grey'
-                dictax[f'{item}'] = 'blue'
-                fig = sns.barplot(x=df['Topic'].unique(),y=df.groupby('Topic').count()['Tweet'],palette=dictax).figure
-                st.pyplot(fig)
+            dictax = {}
+            for item in df['Topic'].unique():
+                dictax[str(item)] = st.container()
+                with dictax[str(item)]:
+                    col1, col2 = st.columns([3,2])
+                    with col1:
+                        AF1 = pd.DataFrame(response.json()[6][int(item)])
+                        AF1['Sentiment'] = response.json()[7][int(item)]
+                        AF1.columns = ['Tweets','Sentiment']
+                        st.table(AF1)
+                    with col2:
+                        #fig2 = px.bar(x=df['Topic'],y=df.groupby('Topic').count()['Topic'])
+                        #fig2.show()
+                        plt.style.use("dark_background")
+                        dictax = {}
+                        for symbol in df['Topic'].unique():
+                            dictax[f'{symbol}'] = 'grey'
+                        dictax[f'{item}'] = 'blue'
+                        fig = sns.barplot(x=df['Topic'].unique(),y=df.groupby('Topic').count()['Tweet'],palette=dictax).figure
+                        st.pyplot(fig)
     # Download file
-    """ file_download=st.container()
-    with file_download:
-        col1, col2, col3, col4, col5 = st.columns([1.5,1.5,3.5,1.5,1.5])
-        with col3:
-            st.write(' Click on the button 👇 to save your search')
-        col1, col2, col3, col4, col5 = st. columns(5)
-        with col3:
+    #file_download=st.container()
+    #with file_download:
+    #    col1, col2, col3, col4, col5 = st.columns([1.5,1.5,3.5,1.5,1.5])
+    #    with col3:
+    #        st.write(' Click on the button 👇 to save your search')
+    #    col1, col2, col3, col4, col5 = st. columns(5)
+    #    with col3:
 
-            download_file = st.download_button(label='Download File', data='', file_name=f'{search} Results - {start_date} to {end_date}.pdf', mime=None, key=None, help=None, on_click=None, disabled=False)
- """
+    #        download_file = st.download_button(label='Download File', data='', file_name=f'{search} Results - {start_date} to {end_date}.pdf', mime=None, key=None, help=None, on_click=None, disabled=False)
