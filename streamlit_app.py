@@ -4,7 +4,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import time
-
+import datetime
 import requests
 import plotly.express as px
 import seaborn as sns
@@ -98,11 +98,11 @@ else:
             search = st.text_input('Enter search term here:')
 
         with col2:
-            start_date=st.date_input('Enter start date:')
+            start_date=st.date_input('Enter start date:',value=datetime.date(2022, 1, 1))
         with col3:
             end_date=st.date_input('Enter end date:')
         with col4:
-            num_tweets= st.number_input('Enter number of tweets',min_value=100, step=100)
+            num_tweets= st.number_input('Enter number of tweets',min_value=500, step=100)
 
         if st.button('Submit Search'):
             col1, col2, col3, = st.columns([1,2,1])
@@ -110,7 +110,7 @@ else:
                 result = st.image('keep-calm-we-are-loading-data.png',caption='Data is loading...')
                 # Run request
                 params = {'search':search, 'date_beg':start_date, 'date_end':end_date, 'number':num_tweets}
-                url = 'https://efpoimagename11-4n5leuorga-ew.a.run.app'
+                url = 'https://efpoimagename12-4n5leuorga-ew.a.run.app'
                 response=requests.get(url, params=params)
                 # dict_df=response.json()["DataFrame"]
                 df=pd.DataFrame()
