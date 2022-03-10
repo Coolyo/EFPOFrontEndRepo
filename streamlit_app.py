@@ -110,7 +110,10 @@ else:
                 result = st.image('keep-calm-we-are-loading-data.png',caption='Data is loading...')
                 # Run request
                 params = {'search':search, 'date_beg':start_date, 'date_end':end_date, 'number':num_tweets}
-                url = 'https://efpoimagename12-4n5leuorga-ew.a.run.app'
+
+                url = 'https://efpoimagename13-4n5leuorga-ew.a.run.app'
+
+
                 response=requests.get(url, params=params)
                 # dict_df=response.json()["DataFrame"]
                 df=pd.DataFrame()
