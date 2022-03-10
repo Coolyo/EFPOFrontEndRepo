@@ -130,6 +130,7 @@ else:
                         color='Topic',template='plotly_dark',hover_data=['Tweet'],width=1000,height=800,title='Visualization of tweets in 3D Space')
                     st.plotly_chart(fig)
                     result.empty()
+    df = ''
     dictax = {}
     for item in df['Topic'].unique():
         dictax[str(item)] = st.container()
