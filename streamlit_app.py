@@ -151,7 +151,7 @@ else:
                 fig = sns.barplot(x=df['Topic'].unique(),y=df.groupby('Topic').count()['Tweet'],palette=dictax).figure
                 st.pyplot(fig)
     # Download file
-    file_download=st.container()
+    """ file_download=st.container()
     with file_download:
         col1, col2, col3, col4, col5 = st.columns([1.5,1.5,3.5,1.5,1.5])
         with col3:
@@ -160,3 +160,4 @@ else:
         with col3:
 
             download_file = st.download_button(label='Download File', data='', file_name=f'{search} Results - {start_date} to {end_date}.pdf', mime=None, key=None, help=None, on_click=None, disabled=False)
+ """
